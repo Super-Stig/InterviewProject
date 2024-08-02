@@ -20,9 +20,9 @@ extension View {
             }
     }
     
-    /// Presents a full-screen cover when a URL error is bound.
+    /// Presents a full-screen cover when an internal Decoding error is bound.
     ///
-    /// - Parameter item: A binding to an optional `URLError` that triggers the presentation.
+    /// - Parameter item: A binding to an optional `APIError` that triggers the presentation.
     @ViewBuilder func internalErrorSheet(item: Binding<APIError?>) -> some View {
         self
             .fullScreenCover(item: item) { _ in
@@ -36,7 +36,7 @@ extension URLError: Identifiable {
     public var id: Self.Code { self.code }
 }
 
-/// A view that displays detailed information about a URL error.
+/// A view that displays detailed information about the error.
 struct ErrorSheet: View {
     @Binding var networkError: URLError?
     @Binding var internalError: APIError?
@@ -51,7 +51,7 @@ struct ErrorSheet: View {
         }
     }
     
-    /// A header view displaying an orange bar.
+    /// A header view displaying an colored bar.
     private var header: some View {
         Rectangle()
             .if(networkError != nil){ view in
@@ -88,13 +88,13 @@ struct ErrorSheet: View {
     private var details: some View {
         ScrollView {
             VStack(alignment: .leading) {
-                if let networkError {
+                if networkError != nil {
                     Text(Constants.networkErrorFoundTitle)
                         .font(.largeTitle)
                         .bold()
                 }
                 
-                if let internalError {
+                if internalError != nil {
                     Text(Constants.internalErrorFoundTitle)
                         .font(.largeTitle)
                         .bold()
