@@ -17,7 +17,7 @@ import Foundation
     var searchQuery: String = "" {
         didSet {
             if searchQuery.isEmpty { return }
-            attemptToRetrieveData()
+            createRetreveDataTask()
         }
     }
     var searchTask: Task<Void, Error>?
@@ -36,7 +36,7 @@ import Foundation
     // MARK: Methods
     
     /// Attempts to retrieve data from the API based on the current search query.
-    func attemptToRetrieveData() {
+    func createRetreveDataTask() {
         searchTask?.cancel()
         searchTask = Task {
             do {

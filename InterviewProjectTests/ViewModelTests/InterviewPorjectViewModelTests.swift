@@ -51,7 +51,7 @@ final class InterviewProjectViewModelTests: XCTestCase {
         mockAPIManager.mock_Data = MockEndpoint.buildFileData(for: type(of: self), with: "MockFlickerResponse")
         
         // Act
-        viewModel.attemptToRetrieveData()
+        viewModel.createRetreveDataTask()
         try await Task.sleep(nanoseconds: 500_000_000) // 0.5 seconds
         
         // Assert
