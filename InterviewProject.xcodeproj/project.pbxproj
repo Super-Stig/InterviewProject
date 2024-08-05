@@ -130,12 +130,12 @@
 			path = FlickerAPI;
 			sourceTree = "<group>";
 		};
-		055B84642C5C1DAC003D93E1 /* Extentions */ = {
+		055B84642C5C1DAC003D93E1 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
 				055B846B2C5C29E9003D93E1 /* View */,
 			);
-			path = Extentions;
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		055B846B2C5C29E9003D93E1 /* View */ = {
@@ -251,7 +251,7 @@
 		05CADE1F2C5ADBCF00812678 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
-				055B84642C5C1DAC003D93E1 /* Extentions */,
+				055B84642C5C1DAC003D93E1 /* Extensions */,
 				05CADE2B2C5AEDC300812678 /* ViewModels */,
 				05CADE282C5AE24700812678 /* Models */,
 				05CADE202C5ADBD400812678 /* Managers */,

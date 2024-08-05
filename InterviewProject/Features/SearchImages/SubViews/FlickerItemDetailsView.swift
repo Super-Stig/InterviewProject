@@ -15,12 +15,13 @@ struct FlickerItemDetailsView: View {
     
     //MARK: Main Body
     var body: some View {
-        ZStack {
-            Color.white.ignoresSafeArea()
-            VStack(spacing: .zero) {
-                displayImage
-                itemDetails
-                Spacer()
+        ScrollView {
+            ZStack {
+                VStack(spacing: .zero) {
+                    displayImage
+                    itemDetails
+                    Spacer()
+                }
             }
         }
     }
@@ -31,7 +32,6 @@ struct FlickerItemDetailsView: View {
         GeometryReader { geoProxy in
             ZStack {
                 Color.black
-                    .ignoresSafeArea()
                 FlickerImageLinkView(
                     item,
                     imgSize: CGSize(width: geoProxy.size.width, height: Constants.imageHeight),

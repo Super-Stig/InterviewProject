@@ -37,19 +37,7 @@ struct Item: Codable, Identifiable {
         case tags
     }
     
-    
-    func getImageSize() -> String {
-        if let imageSource = CGImageSourceCreateWithURL(URL(string: media.imageLink)! as CFURL, nil) {
-            if let imageProperties = CGImageSourceCopyPropertiesAtIndex(imageSource, 0, nil) as Dictionary? {
-                let pixelWidth = imageProperties[kCGImagePropertyPixelWidth] as! Int
-                let pixelHeight = imageProperties[kCGImagePropertyPixelHeight] as! Int
-                return "\(pixelWidth) x \(pixelHeight)"
-            }
-        }
-        
-        return "None"
-    }
-    
+    /// A debug object for testing the Views
     static let debugObj: Self = .init(
         title: "Noah's ark carving",
         link: "https://www.flickr.com//photos//182882235@N04//53889952607//",
