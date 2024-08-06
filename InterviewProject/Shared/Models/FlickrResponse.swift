@@ -57,7 +57,7 @@ struct Media: Codable {
     /// Retrieves the dimensions of the image.
     ///
     /// - Returns: A string representing the image size in the format "width x height" or "None" if the size couldn't be determined.
-    func getImageSize() -> String {
+    func getImageSize() async -> String {
         //Checking the URL
         guard let url = URL(string: imageLink), let imageSource = CGImageSourceCreateWithURL(url as CFURL, nil) else {
             return "None"

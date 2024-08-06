@@ -13,6 +13,8 @@ struct FlickerItemDetailsView: View {
     //MARK: Parameters
     var item: Item
     
+    @State var mediaSize: String = ""
+    
     //MARK: Main Body
     var body: some View {
         ScrollView {
@@ -22,6 +24,11 @@ struct FlickerItemDetailsView: View {
                     itemDetails
                     Spacer()
                 }
+            }
+        }
+        .onAppear {
+            Task {
+                mediaSize = await item.media.getImageSize()
             }
         }
     }
@@ -46,7 +53,7 @@ struct FlickerItemDetailsView: View {
                 Spacer()
                 HStack {
                     Spacer()
-                    Text(item.media.getImageSize())
+                    Text(mediaSize)
                         .padding(Constants.materialPadding)
                         .background(.thickMaterial)
                         .clipShape(RoundedRectangle(cornerRadius: Constants.materialCornerRadius))
